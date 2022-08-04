@@ -1,41 +1,31 @@
 /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   a.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yiyang <yxu@student.42abudhabi.ae>         +#+  +:+       +#+        */
+/*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 22:26:09 by yiyang            #+#    #+#             */
-/*   Updated: 2022/08/04 00:06:03 by yiyang           ###   ########.fr       */
+/*   Created: 2022/08/03 15:32:04 by yxu               #+#    #+#             */
+/*   Updated: 2022/08/03 16:14:36 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_print_comb(void){
-	char a;
-	char b;
-	char c;
-
-	a = '0';
-
-	while(a <= '7'){
-		b = a+1;
-		while(b <= '8'){
-			c = b+1;
-			while(c <= '9'){
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if(!(a=='7'&&b=='8'&&c=='9')) write(1, ", ", 2);
-				c++;
-			}
-			b++;
-		}
-		a++;
-	}
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
 
-int main(void){
-	ft_print_comb();
+void	ft_print_numbers(void)
+{
+	char	n;
+
+	n = '0';
+	while (n <= '9')
+	{
+		ft_putchar(n);
+		n++;
+	}
 }
