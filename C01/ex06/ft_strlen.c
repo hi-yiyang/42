@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   a.c                                                :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/05 00:57:12 by yxu               #+#    #+#             */
-/*   Updated: 2022/08/05 01:03:33 by yxu              ###   ########.fr       */
+/*   Created: 2022/08/06 13:40:00 by yxu               #+#    #+#             */
+/*   Updated: 2022/08/06 13:57:57 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_ultimate_ft(int *********nbr)
+#include <unistd.h>
+
+int ft_strlen(char *str)
 {
-	*********nbr = 42;
+    int i = 0;
+
+    while (str[i] != '\0')
+    {
+        i++;
+    }
+    return i;
 }
 /*
-#include <stdio.h>
-
-int	main()
+int main(void)
 {
-	int	num, *p1, **p2, ***p3, ****p4, *****p5, ******p6, *******p7, ********p8, *********p9;
-
-	p1 = &num;
-	p2 = &p1;
-	p3 = &p2;
-	p4 = &p3;
-	p5 = &p4;
-	p6 = &p5;
-	p7 = &p6;
-	p8 = &p7;
-	p9 = &p8;
-	ft_ultimate_ft(p9);
-	printf("%d\n", num);
+    ft_putstr("sth different");
 }*/

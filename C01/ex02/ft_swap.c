@@ -21,6 +21,9 @@ void	ft_swap(int *a, int *b)
 	*b = c;
 }
 /*
+
+#include <stdio.h>
+
 int	main()
 {
 	int	x;

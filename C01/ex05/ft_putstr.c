@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_combn.c                                   :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/04 17:18:44 by yxu               #+#    #+#             */
-/*   Updated: 2022/08/04 19:30:56 by yxu              ###   ########.fr       */
+/*   Created: 2022/08/06 13:15:21 by yxu               #+#    #+#             */
+/*   Updated: 2022/08/06 13:15:24 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ascend(char cb, int n, int dig)
+void    ft_putstr(char *str)
 {
-   	
+    int i = 0;
 
-void ft_print_combn(int n)
-{
-	char cb[n];
-	int dig = 1;
-
-	cb[0] = 0;
-	while (dig <= n-1)
-	{
-		if 
-		cb[dig] = cb[dig-1] + 1;
-		dig++;
-		// write(1, &cb, n-1);
-	}
+    while (str[i] != '\0')
+    {
+        write(1, &str[i], 1);
+        i++;
+    }
 }
-
-int	main(void)
+/*
+int main(void)
 {
-	ft_print_combn(3);
-}
+    ft_putstr("sth different");
+}*/
