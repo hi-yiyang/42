@@ -6,21 +6,22 @@
 /*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 13:15:21 by yxu               #+#    #+#             */
-/*   Updated: 2022/08/06 13:15:24 by yxu              ###   ########.fr       */
+/*   Updated: 2022/08/06 16:10:39 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void    ft_putstr(char *str)
+void	ft_putstr(char *str)
 {
-    int i = 0;
+	int	i;
 
-    while (str[i] != '\0')
-    {
-        write(1, &str[i], 1);
-        i++;
-    }
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
 }
 /*
 int main(void)

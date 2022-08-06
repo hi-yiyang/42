@@ -6,17 +6,17 @@
 /*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 13:14:25 by yxu               #+#    #+#             */
-/*   Updated: 2022/08/06 13:14:56 by yxu              ###   ########.fr       */
+/*   Updated: 2022/08/06 16:05:26 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    ft_ultimate_div_mod(int *a, int *b)
+void	ft_ultimate_div_mod(int *a, int *b)
 {
-    int div;
-    int mod;
+	int	div;
+	int	mod;
 
-    div = *a / *b;
-    mod = *a % *b;
-    *a = div;
-    *b = mod;
+	div = *a / *b;
+	mod = *a % *b;
+	*a = div;
+	*b = mod;
 }

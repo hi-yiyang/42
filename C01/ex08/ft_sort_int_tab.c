@@ -1,28 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/06 16:44:42 by yxu               #+#    #+#             */
-/*   Updated: 2022/08/06 16:46:53 by yxu              ###   ########.fr       */
+/*   Created: 2022/08/06 17:26:24 by yxu               #+#    #+#             */
+/*   Updated: 2022/08/06 17:26:26 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_rev_int_tab(int *tab, int size)
+#include <stdio.h>
+
+void	swap(int *a, int *b)
 {
-	int	dig;
 	int	temp;
 
-	dig = 0;
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+void	ft_sort_int_tab(int *tab, int size)
+{
+	int	i;
+	int	j;
+
 	size--;
-	while (dig <= size)
+	i = 0;
+	j = 1;
+	while (i <= size)
 	{
-		temp = tab[dig];
-		tab[dig] = tab[size];
-		tab[size] = temp;
-		dig++;
-		size--;
+		while (j <= size)
+		{
+			if (tab[i] > tab[j])
+				swap(&tab[i], &tab[j]);
+			j++;
+		}
+		i++;
+		j = i + 1;
 	}
 }
