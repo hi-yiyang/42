@@ -38,7 +38,7 @@ void	ft_print_comb(void)
 			c = b + 1;
 			while (c <= '9')
 			{
-				write_comb(a, b, c);
+				write_comb(a, b, c);                                                                             
 				c++;
 			}
 			b++;
