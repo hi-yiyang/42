@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 void	ft_putchar(char c);
 
 void	print_row(int y, char start, char middle, char end)
@@ -20,14 +18,14 @@ void	print_row(int y, char start, char middle, char end)
 
 	col = 0;
 	while (++col <= y)
-		{
-			if (col == 1)
-				ft_putchar(start);
-			else if (col != 1 && col != y)
-				ft_putchar(middle);
-			else if (col == y)
-				ft_putchar(end);
-		}
+	{
+		if (col == 1)
+			ft_putchar(start);
+		else if (col != 1 && col != y)
+			ft_putchar(middle);
+		else if (col == y)
+			ft_putchar(end);
+	}
 	ft_putchar('\n');
 }
 
