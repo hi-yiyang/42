@@ -6,13 +6,13 @@
 /*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 17:18:44 by yxu               #+#    #+#             */
-/*   Updated: 2022/08/04 19:30:56 by yxu              ###   ########.fr       */
+/*   Updated: 2022/08/08 00:29:36 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void print_comb(char *comb, int n)
+void	print_comb(char *comb, int n)
 {
 	int	i;
 
@@ -21,11 +21,11 @@ void print_comb(char *comb, int n)
 	{
 		write(1, &comb[i++], 1);
 	}
-	if (comb[0] < 57 - n) // ASCII value 57 as '9'
+	if (comb[0] < 57 - n)
 		write(1, ", ", 2);
 }
 
-void iterate(char *comb, int dig, int max, int n)
+void	iterate(char *comb, int dig, int max, int n)
 {
 	while (comb[dig] <= 58 - max)
 	{
@@ -43,15 +43,14 @@ void iterate(char *comb, int dig, int max, int n)
 	}
 }
 
-void ft_print_combn(int n)
+void	ft_print_combn(int n)
 {
-	char comb[n];
-	int dig;
-	int max;
+	char	comb[10];
+	int		dig;
+	int		max;
 
 	if (n > 10)
-		return;
-
+		return ;
 	max = n;
 	comb[0] = '0';
 	dig = 0;
