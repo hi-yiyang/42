@@ -14,7 +14,8 @@
 
 void	ft_putstr_non_printable(char *str)
 {
-	int	i;
+	int		i;
+	char	j[3];
 
 	i = 0;
 	while (str[i] != '\0')
@@ -23,9 +24,10 @@ void	ft_putstr_non_printable(char *str)
 			write(1, &str[i], 1);
 		else
 		{
-			write(1, "\\", 1);
-			write(1, &"0123456789abcdef"[str[i] / 16], 1);
-			write(1, &"0123456789abcdef"[str[i] % 16], 1);
+			j[0] = '\\';
+			j[1] = "0123456789abcdef"[str[i] / 16];
+			j[2] = "0123456789abcdef"[str[i] % 16];
+			write(1, &j, 3);
 		}
 		i++;
 	}
