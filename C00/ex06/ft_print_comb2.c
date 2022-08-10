@@ -17,8 +17,8 @@ void	print2write(int i)
 	char	dig1;
 	char	dig2;
 
-	dig1 = i / 10 + 48;
-	dig2 = i % 10 + 48;
+	dig1 = i / 10 + '0';
+	dig2 = i % 10 + '0';
 	write(1, &dig1, 1);
 	write(1, &dig2, 1);
 }
@@ -29,7 +29,7 @@ void	ft_print_comb2(void)
 	int	b;
 
 	a = 0;
-	while (a <= 99)
+	while (a <= 98)
 	{
 		b = a + 1;
 		while (b <= 99)
@@ -46,3 +46,8 @@ void	ft_print_comb2(void)
 		a++;
 	}
 }
+/*
+int	main(void)
+{
+	ft_print_comb2();
+}*/
