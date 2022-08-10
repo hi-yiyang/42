@@ -1,38 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   strstr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 20:43:14 by yxu               #+#    #+#             */
+/*   Created: 2022/08/10 20:43:20 by yxu               #+#    #+#             */
 /*   Updated: 2022/08/10 20:43:29 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+char	*ft_strstr(char *str, char *to_find)
 {
-	int	i;
-	int	j;
+	char	*needle;
+	char	*result;
 
-	i = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	while (src[j] && j < nb)
+	if (*to_find == '\0')
+		return (str);
+	needle = to_find;
+	while (*str)
 	{
-		dest[i++] = src[j++];
+		if (*str == *to_find)
+		{
+			result = str;
+			while (*str == *to_find)
+			{
+				str++;
+				to_find++;
+			}
+			if (*to_find == '\0')
+				return (result);
+			else
+				to_find = needle;
+		}
+		str++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (0);
 }
 /*
 #include <stdio.h>
 #include <string.h>
 
-int main() {
-   char str1[100] = "This is ", str2[] = "programiz.com";
-   ft_strncat(str1, str2, 3);
-   puts(str1);
-   puts(str2);
+int	main(void)
+{
+	char *largestring = "Foo Bar Baz";
+	char *smallstring = "Bar";
+	puts(strstr(largestring, smallstring));
+	puts(ft_strstr(largestring, smallstring));
 }*/
