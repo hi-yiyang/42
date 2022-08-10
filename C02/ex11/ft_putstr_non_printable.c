@@ -11,11 +11,13 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 void	ft_putstr_non_printable(char *str)
 {
-	int		i;
-	char	j[3];
+	int				i;
+	unsigned char	c;
+	char			out[3];
 
 	i = 0;
 	while (str[i] != '\0')
@@ -24,10 +26,11 @@ void	ft_putstr_non_printable(char *str)
 			write(1, &str[i], 1);
 		else
 		{
-			j[0] = '\\';
-			j[1] = "0123456789abcdef"[str[i] / 16];
-			j[2] = "0123456789abcdef"[str[i] % 16];
-			write(1, &j, 3);
+			c = str[i];
+			out[0] = '\\';
+			out[1] = "0123456789abcdef"[c / 16];
+			out[2] = "0123456789abcdef"[c % 16];
+			write(1, &out, 3);
 		}
 		i++;
 	}

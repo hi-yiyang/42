@@ -10,6 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+int	is_symbol(char c)
+{
+	if (c >= '0' && c <= '9' || c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z')
+		return (0);
+	return (1);
+}
+
 char	*ft_strcapitalize(char *str)
 {
 	int	i;
@@ -27,8 +34,7 @@ char	*ft_strcapitalize(char *str)
 		}
 		else if (cap == 0 && str[i] >= 'A' && str[i] <= 'Z')
 			str[i] += 32;
-		if (!(str[i] >= '0' && str[i] <= '9' || str[i] >= 'A' \
-		&& str[i] <= 'Z' || str[i] >= 'a' && str[i] <= 'z'))
+		if (is_symbol(str[i]))
 			cap = 1;
 		i++;
 	}
