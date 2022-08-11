@@ -24,23 +24,19 @@ unsigned int	ft_strlen(char *str)
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int	sum;
 	unsigned int	i;
 	unsigned int	j;
 
 	i = ft_strlen(dest);
-	j = ft_strlen(src);
-	sum = i + j;
+	if (i >= size)
+		return (size + ft_strlen(src));
 	j = 0;
-	if (size > 0)
+	while (src[j] && i + 1 < size)
 	{
-		while (src[j] && i < size - 1)
-		{
-			dest[i++] = src[j++];
-		}
-		dest[i] = '\0';
+		dest[i++] = src[j++];
 	}
-	return (sum);
+	dest[i] = '\0';
+	return (ft_strlen(dest) + ft_strlen(src));
 }
 /*
 #include <stdio.h>

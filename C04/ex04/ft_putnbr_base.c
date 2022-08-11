@@ -57,5 +57,5 @@ void ft_putnbr_base(int nbr, char *base)
 /*
 int	main(void)
 {
-	ft_putnbr_base(10, "0123456789ABCDEF");
+	ft_putnbr_base(-153, "0123456789ABCDEF");
 }*/

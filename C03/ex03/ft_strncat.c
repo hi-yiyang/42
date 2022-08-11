@@ -12,8 +12,8 @@
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	i;
-	int	j;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
 	j = 0;
@@ -31,7 +31,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 #include <string.h>
 
 int main() {
-   char str1[100] = "This is ", str2[] = "programiz.com";
-   puts(ft_strncat(str1, str2, 3));
+   char str1[100] = "This is:", str2[] = "programiz.com";
+   puts(ft_strncat(str1, str2, 0));
    puts(str2);
 }*/

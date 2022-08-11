@@ -12,6 +12,26 @@
 
 char	*ft_strstr(char *str, char *to_find)
 {
+	int	i;
+	int	j;
+
+	if (to_find[0] == '\0')
+		return (str);
+	i = 0;
+	while (str[i])
+	{
+		j = 0;
+		while (str[i + j] == to_find[j] && str[i + j])
+			j++;
+		if (to_find[j] == '\0')
+			return (&str[i]);
+		i++;
+	}
+	return (0);
+}
+/*
+char	*ft_strstr(char *str, char *to_find)
+{
 	char	*needle;
 	char	*result;
 
@@ -20,23 +40,20 @@ char	*ft_strstr(char *str, char *to_find)
 	needle = to_find;
 	while (*str)
 	{
-		if (*str == *to_find)
+		result = str;
+		while (*str == *to_find && *str)
 		{
-			result = str;
-			while (*str == *to_find)
-			{
-				str++;
-				to_find++;
-			}
-			if (*to_find == '\0')
-				return (result);
-			else
-				to_find = needle;
+			str++;
+			to_find++;
 		}
+		if (*to_find == '\0')
+			return (result);
+		else
+			to_find = needle;
 		str++;
 	}
 	return (0);
-}
+}*/
 /*
 #include <stdio.h>
 #include <string.h>
@@ -44,7 +61,7 @@ char	*ft_strstr(char *str, char *to_find)
 int	main(void)
 {
 	char *largestring = "Foo Bar Baz";
-	char *smallstring = "Bar";
+	char *smallstring = "Bar Baz";
 	puts(strstr(largestring, smallstring));
 	puts(ft_strstr(largestring, smallstring));
 }*/
