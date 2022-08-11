@@ -49,23 +49,24 @@ int	is_pos(char *str, int *seq)
 
 int	cal_base_system(char *str)
 {
-	char	existing[64] = " +-";
-	int		i;
-	int		output;
+	int	i;
+	int	count;
 
-	output = 0;
+	count = 0;
 	while (*str != '\0')
 	{
-		i = 0;
-		while (existing[i])
+		if (*str == ' ' || *str == '+' || *str == '-')
+			return (0);
+		i = count;
+		while (i > 0)
 		{
-			if (existing[i++] == *str)
+			if (*str == *(str - i--))
 				return (0);
 		}
-		existing[i] = *(str++);
-		output++;
+		str++;
+		count++;
 	}
-	return (output);
+	return (count);
 }
 
 int	char2int(char *str, int *seq, char *base, int base_system)

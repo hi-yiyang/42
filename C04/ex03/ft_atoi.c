@@ -22,7 +22,7 @@ int	skip_space(char *str, int *seq)
 		else if (c == '\f' || c == '\t' || c == '\v')
 			(*seq)++;
 		else
-			break;
+			break ;
 	}
 	return (*seq);
 }
@@ -42,12 +42,12 @@ int	is_pos(char *str, int *seq)
 		else if (str[*seq] == '+')
 			(*seq)++;
 		else
-			break;
+			break ;
 	}
 	return (pos);
 }
 
-int power(int x, int y)
+int	power(int x, int y)
 {
 	while (--y > 0)
 		x *= 10;

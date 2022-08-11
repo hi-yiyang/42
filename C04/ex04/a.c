@@ -14,23 +14,24 @@
 
 int	cal_base_system(char *str)
 {
-	char	existing[64] = " +-";
-	int		i;
-	int		output;
+	int	i;
+	int	count;
 
-	output = 0;
+	count = 0;
 	while (*str != '\0')
 	{
-		i = 0;
-		while (existing[i])
+		if (*str == ' ' || *str == '+' || *str == '-')
+			return (0);
+		i = count;
+		while (i > 0)
 		{
-			if (existing[i++] == *str)
-				return 0;
+			if (*str == *(str - i--))
+				return (0);
 		}
-		existing[i] = *(str++);
-		output++;
+		str++;
+		count++;
 	}
-	return (output);
+	return (count);
 }
 
 void	ft_putchar(char c)
