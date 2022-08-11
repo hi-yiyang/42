@@ -19,7 +19,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int n)
 	while (src[desired] != '\0')
 		desired++;
 	i = 0;
-	if (n < 0)
+	if (n > 0)
 	{
 		while (i < n - 1 && src[i] != '\0')
 		{
