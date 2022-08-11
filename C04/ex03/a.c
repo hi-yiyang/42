@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*   a.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 23:28:02 by yxu               #+#    #+#             */
-/*   Updated: 2022/08/11 23:28:07 by yxu              ###   ########.fr       */
+/*   Created: 2022/08/11 23:27:49 by yxu               #+#    #+#             */
+/*   Updated: 2022/08/11 23:28:06 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	skip_space(char *str, int *seq)
 		else if (c == '\f' || c == '\t' || c == '\v')
 			(*seq)++;
 		else
-			break ;
+			break;
 	}
 	return (*seq);
 }
@@ -42,72 +42,53 @@ int	is_pos(char *str, int *seq)
 		else if (str[*seq] == '+')
 			(*seq)++;
 		else
-			break ;
+			break;
 	}
 	return (pos);
 }
 
-int	cal_base_system(char *str)
+int power(int x, int y)
 {
-	char	existing[64] = " +-";
-	int		i;
-	int		output;
-
-	output = 0;
-	while (*str != '\0')
-	{
-		i = 0;
-		while (existing[i])
-		{
-			if (existing[i++] == *str)
-				return (0);
-		}
-		existing[i] = *(str++);
-		output++;
-	}
-	return (output);
+	while (--y > 0)
+		x *= 10;
+	return (x);
 }
 
-int	char2int(char *str, int *seq, char *base, int base_system)
+int	char2int(char *ch, int len, int pos)
 {
 	int	i;
-	int	result;
+	int	value;
 
-	result = 0;
-	while (str[*seq])
-	{
-		i = 0;
-		while (base[i])
-		{
-			if (base[i] == str[*seq])
-			{
-				result = result * base_system + i;
-				break ;
-			}
-			i++;
-		}
-		if (base[i] == '\0')
-			return (result);
-		(*seq)++;
-	}
-	return (result);
+	i = 0;
+	value = 0;
+	while (len > 0)
+		value += power((ch[i++] - '0'), len--);
+	if (pos == -1)
+		value = -value;
+	return (value);
 }
 
-int	ft_atoi_base(char *str, char *base)
+int	ft_atoi(char *str)
 {
-	int	seq;
-	int	pos;
-	int	base_system;
-	int	result;
+	int		seq;
+	int		pos;
+	char	len;
+	char	ch[10];
 
 	seq = 0;
 	skip_space(str, &seq);
 	pos = is_pos(str, &seq);
-	base_system = cal_base_system(base);
-	if (base_system < 2)
-		return (0);
-	result = char2int(str, &seq, base, base_system);
-	if (pos == -1)
-		result = -result;
-	return (result);
+	len = 0;
+	while (str[seq] >= '0' && str[seq] <= '9')
+		ch[len++] = str[seq++];
+	return (char2int(ch, len, pos));
+}
+
+#include <stdio.h>
+
+int		main(void)
+{
+	printf("%d\n", ft_atoi("	++-++--133742ab567"));
+	printf("%d\n", ft_atoi("	     --+101010"));
+	printf("%d\n", ft_atoi(" 	+-+-5e3f9"));
 }

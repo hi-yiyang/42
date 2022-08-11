@@ -64,3 +64,8 @@ void ft_putnbr_base(int nbr, char *base)
 	else
 		return;
 }
+
+int	main(void)
+{
+	ft_putnbr_base(128, "01234567");
+}

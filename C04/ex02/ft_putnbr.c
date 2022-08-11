@@ -32,8 +32,3 @@ void	ft_putnbr(int nb)
 		ft_putnbr(n / 10);
 	ft_putchar(n % 10 + '0');
 }
-/*
-int	main(void)
-{
-	ft_putnbr(2147483647);
-}*/
