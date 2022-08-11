@@ -55,7 +55,7 @@ void	ft_putnbr(int nb, int divisor, char *base)
 	ft_putchar(base[n % divisor]);
 }
 
-void ft_putnbr_base(int nbr, char *base)
+void	ft_putnbr_base(int nbr, char *base)
 {
 	int	divisor;
 
@@ -63,7 +63,7 @@ void ft_putnbr_base(int nbr, char *base)
 	if (divisor >= 2)
 		ft_putnbr(nbr, divisor, base);
 	else
-		return;
+		return ;
 }
 
 int	main(void)
