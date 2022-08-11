@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 20:43:14 by yxu               #+#    #+#             */
-/*   Updated: 2022/08/10 20:43:29 by yxu              ###   ########.fr       */
+/*   Created: 2022/08/11 22:07:33 by yxu               #+#    #+#             */
+/*   Updated: 2022/08/11 22:07:44 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 
 	i = 0;
 	j = 0;
-	while (dest[i])
-		i++;
-	while (src[j] && j < nb)
+	while (dest[i] != '\0')
 	{
-		dest[i++] = src[j++];
+		i++;
 	}
-	dest[i] = '\0';
+	while (j < nb && src[j] != '\0')
+	{
+		dest[i + j] = src [j];
+		j++;
+	}
+	dest[i + j] = '\0';
 	return (dest);
 }
 /*
