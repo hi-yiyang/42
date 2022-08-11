@@ -23,7 +23,8 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 		}
 		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 	}
-	return (0);
+	else
+		return (0);
 }
 /*
 #include <stdio.h>

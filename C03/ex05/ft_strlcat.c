@@ -32,11 +32,14 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	j = ft_strlen(src);
 	sum = i + j;
 	j = 0;
-	while (src[j] && i < size - 1)
+	if (size > 0)
 	{
-		dest[i++] = src[j++];
+		while (src[j] && i < size - 1)
+		{
+			dest[i++] = src[j++];
+		}
+		dest[i] = '\0';
 	}
-	dest[i] = '\0';
 	return (sum);
 }
 /*
@@ -44,8 +47,8 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 #include <string.h>
 
 int main() {
-   char str1[100] = "He", str2[] = "llo";
-   printf("%d\n", ft_strlcat(str1, str2, 4));
+   char str1[] = "He", str2[] = "llo";
+   printf("%d\n", ft_strlcat(str1, str2, 0));
    puts(str1);
    puts(str2);
 }*/

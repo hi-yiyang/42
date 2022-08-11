@@ -32,7 +32,6 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 
 int main() {
    char str1[100] = "This is ", str2[] = "programiz.com";
-   ft_strncat(str1, str2, 3);
-   puts(str1);
+   puts(ft_strncat(str1, str2, 3));
    puts(str2);
 }*/
