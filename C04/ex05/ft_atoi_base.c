@@ -35,13 +35,6 @@ int	is_pos(char *str, int *seq)
 	return (pos);
 }
 
-int power(int x, int y)
-{
-	while (--y > 0)
-		x *= 10;
-	return (x);
-}
-
 int	char2int(char *ch, int len, int pos)
 {
 	int	i;
@@ -56,7 +49,7 @@ int	char2int(char *ch, int len, int pos)
 	return (value);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi_base(char *str, char *base)
 {
 	int		seq;
 	int		pos;
