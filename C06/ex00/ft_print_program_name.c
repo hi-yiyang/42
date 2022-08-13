@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   a.c                                                :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/13 23:17:09 by yxu               #+#    #+#             */
-/*   Updated: 2022/08/13 23:17:11 by yxu              ###   ########.fr       */
+/*   Created: 2022/08/14 00:54:22 by yxu               #+#    #+#             */
+/*   Updated: 2022/08/14 00:54:23 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int	rt;
+#include <unistd.h>
 
-	rt = 0;
-	while (rt * rt < nb)
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		rt++;
-		if (rt * rt == nb)
-			return (rt);
-		else if (rt * rt > nb)
-			return (0);
+		write(1, &str[i], 1);
+		i++;
 	}
-	return (0);
 }
 
-#include <stdio.h>
-
-int	main(void)
+int	main(int argv, char **arg)
 {
-	printf("%d\n", ft_sqrt(144));
+	ft_putstr(arg[0]);
 }

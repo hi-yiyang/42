@@ -14,7 +14,7 @@ int	ft_is_prime(int nb)
 {
 	int	factor;
 
-	if (nb == 0 || nb == 1)
+	if (nb < 2)
 		return (0);
 	factor = 2;
 	while (factor <= nb / 2)
@@ -28,7 +28,7 @@ int	ft_is_prime(int nb)
 
 int	ft_find_next_prime(int nb)
 {
-	while (ft_is_prime(nb) == 0)
+	while (nb < 2147483647 && ft_is_prime(nb) == 0)
 		nb++;
 	return (nb);
 }

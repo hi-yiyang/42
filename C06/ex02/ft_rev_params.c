@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   a.c                                                :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/13 23:37:08 by yxu               #+#    #+#             */
-/*   Updated: 2022/08/13 23:37:12 by yxu              ###   ########.fr       */
+/*   Created: 2022/08/14 00:54:22 by yxu               #+#    #+#             */
+/*   Updated: 2022/08/14 01:07:14 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb)
-{
-	int	factor;
+#include <unistd.h>
 
-	if (nb == 0 || nb == 1)
-		return (0);
-	factor = 2;
-	while (factor <= nb / 2)
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if (nb % factor == 0)
-			return (0);
-		factor++;
+		write(1, &str[i], 1);
+		i++;
 	}
-	return (1);
 }
 
-int	ft_find_next_prime(int nb)
+int	main(int argv, char **arg)
 {
-	while (ft_is_prime(nb) == 0)
-		nb++;
-	return (nb);
-}
+	int	i;
 
-#include <stdio.h>
-
-int	main(void)
-{
-	printf("%d\n", ft_find_next_prime(13));
+	i = 0;
+	while (arg[i + 1])
+		i++;
+	while (i > 0)
+	{
+		ft_putstr(arg[i--]);
+		ft_putstr("\n");
+	}
 }
