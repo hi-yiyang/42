@@ -28,9 +28,7 @@ int	main(int argc, char **arg)
 {
 	int	i;
 
-	i = 0;
-	while (arg[i + 1])
-		i++;
+	i = argc - 1;
 	while (i > 0)
 	{
 		ft_putstr(arg[i--]);

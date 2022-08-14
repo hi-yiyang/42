@@ -28,10 +28,13 @@ int	main(int argc, char **arg)
 {
 	int	i;
 
-	i = 1;
-	while (arg[i])
+	if (argc > 1)
 	{
-		ft_putstr(arg[i++]);
-		ft_putstr("\n");
+		i = 1;
+		while (i < argc)
+		{
+			ft_putstr(arg[i++]);
+			ft_putstr("\n");
+		}
 	}
 }

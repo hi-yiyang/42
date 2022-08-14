@@ -26,5 +26,9 @@ void	ft_putstr(char *str)
 
 int	main(int argc, char **arg)
 {
-	ft_putstr(arg[0]);
+	if (argc > 0)
+	{
+		ft_putstr(arg[0]);
+		ft_putstr("\n");
+	}
 }
