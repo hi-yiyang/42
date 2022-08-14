@@ -24,7 +24,7 @@ void	ft_putstr(char *str)
 	}
 }
 
-int	main(int argv, char **arg)
+int	main(int argc, char **arg)
 {
 	int	i;
 
