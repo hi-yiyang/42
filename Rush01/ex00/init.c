@@ -23,3 +23,6 @@ int	malloc_2d_int_array(void)
 }
 
 int	malloc_3d_int_array(void)
+{
+
+}
