@@ -1,11 +1,17 @@
-find . -name ".DS_Store" -print -delete
-
-git add .
-git commit -m "auto test"
-git push
-
-find . -name "a*" -print -delete
+## Code check
 
 gcc -Wall -Wextra -Werror *
 
-norminette
+norminette */ft*.c
+
+find . -name ".DS_Store" -print -delete
+
+## Make and submit git
+
+git clone & copy files
+
+find . -name "a*" -print -delete
+
+git add .
+git commit -m "sub"
+git push
