@@ -60,7 +60,6 @@ int	char2int(char *str, int start, char *base, int base_system)
 int	ft_atoi_base(char *str, char *base)
 {
 	int	i;
-	int	j;
 	int	pos;
 	int	base_system;
 
@@ -69,7 +68,7 @@ int	ft_atoi_base(char *str, char *base)
 	base_system = cal_base_system(base);
 	if (base_system < 2)
 		return (0);
-	while (str[i] >= 9 && str[i] <= 13 || str[i] == ' ')
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	while (str[i] == '+' || str[i] == '-')
 	{

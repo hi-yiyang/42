@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ab.c                                               :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 22:29:06 by yxu               #+#    #+#             */
-/*   Updated: 2022/08/14 22:29:07 by yxu              ###   ########.fr       */
+/*   Created: 2022/08/15 01:11:07 by yxu               #+#    #+#             */
+/*   Updated: 2022/08/15 01:12:43 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	pos;
-	int	result;
+#include <stdlib.h>
 
+char	*ft_strdup(char *src)
+{
+	char	*ptr;
+	int		i;
+
+	ptr = malloc(sizeof(src));
+	if (ptr == 0)
+		return (0);
 	i = 0;
-	pos = 1;
-	result = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+	while (src[i])
+	{
+		ptr[i] = src[i];
 		i++;
-	while (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i++] == '-')
-			pos = -pos;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = (result * 10) + (str[i++] - '0');
-	}
-	return (result * pos);
+	ptr[i] = '\0';
+	return (ptr);
 }

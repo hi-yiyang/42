@@ -39,7 +39,7 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	put_posnbr_base(unsigned int n, int divisor, char *base)
+void	put_posnbr_base(unsigned int n, unsigned int divisor, char *base)
 {
 	if (n >= divisor)
 		put_posnbr_base(n / divisor, divisor, base);
