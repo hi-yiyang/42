@@ -10,7 +10,7 @@ find . -name ".DS_Store" -print -delete
 
 git clone & copy files
 
-find . -name "a*" -print -delete
+find . -name "a*.c" -print -delete
 
 git add .
 git commit -m "sub"

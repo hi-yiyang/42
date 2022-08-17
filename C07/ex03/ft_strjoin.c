@@ -63,9 +63,10 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 
 	if (size == 0)
 		return (malloc(sizeof(char)));
-	locator = (ptr = mk_str(size, strs, sep));
+	ptr = mk_str(size, strs, sep);
 	if (ptr == 0)
 		return (0);
+	locator = ptr;
 	i = 0;
 	while (i < size)
 	{
