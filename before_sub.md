@@ -1,8 +1,15 @@
+## Libraries
+
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 ## Code check
 
 gcc -Wall -Wextra -Werror *
 
 norminette */ft*.c
+norminette -R CheckDefine
 
 find . -name ".DS_Store" -print -delete
 

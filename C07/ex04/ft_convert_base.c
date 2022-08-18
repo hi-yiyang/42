@@ -40,21 +40,27 @@ int	cal_digit_base(int nbr, unsigned int base_sys)
 
 void	nbr2str_base(int decimal, int base_sys, char *base, char *ptr)
 {
-	int	pos;
+	int				pos;
+	unsigned int	n;
 
 	if (decimal < 0)
 	{
-		decimal = -decimal;
+		n = -decimal;
 		pos = -1;
 	}
-	while (decimal >= base_sys)
+	while (n >= base_sys)
 	{
-		*(--ptr) = base[decimal % base_sys];
-		decimal = decimal / base_sys;
+		ptr--;
+		*ptr = base[n % base_sys];
+		n = n / base_sys;
 	}
-	*(--ptr) = base[decimal % base_sys];
+	ptr--;
+	*ptr = base[n % base_sys];
 	if (pos == -1)
-		*(--ptr) = '-';
+	{
+		ptr--;
+		*ptr = '-';
+	}
 }
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)

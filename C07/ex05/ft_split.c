@@ -47,11 +47,8 @@ int	cal_ele_len(char *str, char *charset)
 	int	count;
 
 	count = 0;
-	while (*str && in_charset(*str, charset) == 0)
-	{
+	while (str[count] && in_charset(str[count], charset) == 0)
 		count++;
-		str++;
-	}
 	return (count);
 }
 
@@ -67,7 +64,7 @@ char	*mk_ele(char **str, char *charset)
 		return (0);
 	locator = ele;
 	while (**str && in_charset(**str, charset) == 0)
-		*(locator++) = *((*str)++);
+		*(locator++) = *(*str)++;
 	*locator = '\0';
 	return (ele);
 }
@@ -87,11 +84,13 @@ char	**ft_split(char *str, char *charset)
 	{
 		while (*str && in_charset(*str, charset))
 			str++;
-		arr[i++] = mk_ele(&str, charset);
+		arr[i] = mk_ele(&str, charset);
+		i++;
 	}
+	arr[i] = 0;
 	return (arr);
 }
-/*
+
 #include <stdio.h>
 
 int	main(void)
@@ -103,4 +102,4 @@ int	main(void)
 	{
 		printf("%s\n", *(arr++));
 	}
-}*/
+}
