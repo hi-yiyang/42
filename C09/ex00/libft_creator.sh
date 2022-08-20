@@ -1,1 +1,3 @@
-gcc -c 
+gcc -c *.c
+ar rcs libft.a *.o
+rm *.o

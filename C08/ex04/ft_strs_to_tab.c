@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "ft_stock_str.h"
 
 int	ft_strlen(char *str)
 {
@@ -29,7 +30,10 @@ char	*ft_strdup(char *src)
 	char	*ptr;
 	int		i;
 
-	ptr = malloc(sizeof(src));
+	i = 0;
+	while (src[i])
+		i++;
+	ptr = malloc(sizeof(char) * (i + 1));
 	if (ptr == 0)
 		return (0);
 	i = 0;
@@ -50,6 +54,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	ptr = malloc(sizeof(t_stock_str) * (ac + 1));
 	if (ptr == 0)
 		return (0);
+	i = 0;
 	while (i < ac)
 	{
 		ptr[i].size = ft_strlen(av[i]);
