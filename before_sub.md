@@ -10,7 +10,7 @@ gcc -Wall -Wextra -Werror *
 
 norminette */ft*.c
 norminette -R CheckForbiddenSourceHeader
-norminette -R CheckDefine
+norminette -R CheckForbiddenSourceHeader -R CheckDefine
 
 find . -name ".DS_Store" -print -delete
 
