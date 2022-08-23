@@ -90,7 +90,7 @@ char	**ft_split(char *str, char *charset)
 	{
 		while (*str && is_sep(*str, charset))
 			str++;
-		if (*str)
+		if (*str && !is_sep(*str, charset))
 		{
 			arr[i] = mk_str(&str, charset);
 			i++;

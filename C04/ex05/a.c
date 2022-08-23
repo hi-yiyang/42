@@ -115,7 +115,7 @@ int	ft_atoi_base(char *str, char *base)
 
 #include <stdio.h>
 
-int		main(void)
+int	main(void)
 {
 	printf("%d\n", ft_atoi_base("	++-++--133742ab567", "0123456789"));
 	printf("%d\n", ft_atoi_base("	     --+101010", "01"));
