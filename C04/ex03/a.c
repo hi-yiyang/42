@@ -54,7 +54,7 @@ int	power(int x, int y)
 	return (x);
 }
 
-int	char2int(char *ch, int len, int pos)
+int	str2int(char *ch, int len, int pos)
 {
 	int	i;
 	int	value;
@@ -81,7 +81,7 @@ int	ft_atoi(char *str)
 	len = 0;
 	while (str[seq] >= '0' && str[seq] <= '9')
 		ch[len++] = str[seq++];
-	return (char2int(ch, len, pos));
+	return (str2int(ch, len, pos));
 }
 
 #include <stdio.h>

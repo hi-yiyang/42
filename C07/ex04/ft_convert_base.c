@@ -37,7 +37,7 @@ int	count_digit_base(int nbr, unsigned int base_sys)
 	return (dig);
 }
 
-void	nbr2str_base(int decimal, int base_sys, char *base, char *ptr)
+void	nbr2str_base(int decimal, unsigned int base_sys, char *base, char *ptr)
 {
 	int				pos;
 	unsigned int	n;

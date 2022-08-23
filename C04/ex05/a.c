@@ -69,7 +69,7 @@ int	cal_base_system(char *str)
 	return (count);
 }
 
-int	char2int(char *str, int *seq, char *base, int base_system)
+int	str2int(char *str, int *seq, char *base, int base_system)
 {
 	int	i;
 	int	result;
@@ -107,7 +107,7 @@ int	ft_atoi_base(char *str, char *base)
 	base_system = cal_base_system(base);
 	if (base_system < 2)
 		return (0);
-	result = char2int(str, &seq, base, base_system);
+	result = str2int(str, &seq, base, base_system);
 	if (pos == -1)
 		result = -result;
 	return (result);
