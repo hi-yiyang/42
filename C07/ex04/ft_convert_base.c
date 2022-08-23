@@ -11,12 +11,11 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int	cal_base_system(char *str);
 int	ft_atoi_base(char *str, char *base);
 
-int	cal_digit_base(int nbr, unsigned int base_sys)
+int	count_digit_base(int nbr, unsigned int base_sys)
 {
 	int				dig;
 	unsigned int	n;
@@ -48,19 +47,16 @@ void	nbr2str_base(int decimal, int base_sys, char *base, char *ptr)
 		n = -decimal;
 		pos = -1;
 	}
+	else
+		n = decimal;
 	while (n >= base_sys)
 	{
-		ptr--;
-		*ptr = base[n % base_sys];
+		*--ptr = base[n % base_sys];
 		n = n / base_sys;
 	}
-	ptr--;
-	*ptr = base[n % base_sys];
+	*--ptr = base[n % base_sys];
 	if (pos == -1)
-	{
-		ptr--;
-		*ptr = '-';
-	}
+		*--ptr = '-';
 }
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
@@ -74,7 +70,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 		return (0);
 	decimal = ft_atoi_base(nbr, base_from);
 	base_sys = cal_base_system(base_to);
-	dig = cal_digit_base(decimal, base_sys);
+	dig = count_digit_base(decimal, base_sys);
 	ptr = malloc(sizeof(char) * (dig + 1));
 	if (ptr == 0)
 		return (0);
@@ -83,7 +79,9 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	return (ptr);
 }
 /*
+#include <stdio.h>
+
 int	main(void)
 {
-	printf("%s\n", ft_convert_base("    +-+--10101000001", "01", "01234567"));
+	printf("%s\n", ft_convert_base("    +-+---2147483648", "0123456789", "01234567"));
 }*/

@@ -12,15 +12,16 @@
 
 #include <stdlib.h>
 
-int	in_charset(char c, char *charset)
+int	is_sep(char c, char *charset)
 {
 	int	j;
 
 	j = 0;
 	while (charset[j])
 	{
-		if (c == charset[j++])
+		if (c == charset[j])
 			return (1);
+		j++;
 	}
 	return (0);
 }
@@ -32,11 +33,11 @@ int	cal_arr_size(char *str, char *charset)
 	count = 0;
 	while (*str)
 	{
-		while (*str && in_charset(*str, charset))
+		while (*str && is_sep(*str, charset))
 			str++;
 		if (*str)
 			count++;
-		while (*str && !in_charset(*str, charset))
+		while (*str && !is_sep(*str, charset))
 			str++;
 	}
 	return (count);
@@ -47,7 +48,7 @@ int	cal_ele_len(char *str, char *charset)
 	int	count;
 
 	count = 0;
-	while (str[count] && in_charset(str[count], charset) == 0)
+	while (str[count] && is_sep(str[count], charset) == 0)
 		count++;
 	return (count);
 }
@@ -63,7 +64,7 @@ char	*mk_ele(char **str, char *charset)
 	if (ele == 0)
 		return (0);
 	locator = ele;
-	while (**str && in_charset(**str, charset) == 0)
+	while (**str && is_sep(**str, charset) == 0)
 		*(locator++) = *(*str)++;
 	*locator = '\0';
 	return (ele);
@@ -82,7 +83,7 @@ char	**ft_split(char *str, char *charset)
 	i = 0;
 	while (i < arr_size)
 	{
-		while (*str && in_charset(*str, charset))
+		while (*str && is_sep(*str, charset))
 			str++;
 		arr[i] = mk_ele(&str, charset);
 		i++;

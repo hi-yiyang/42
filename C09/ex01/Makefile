@@ -1,25 +1,24 @@
-SOURCE	= srcs/
-SRCS    = ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
-OBJS	= ${addprefix ${SOURCE},${SRCS:.c=.o}}
-HEAD	= includes
-CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
-NAME	= libft.a
+SRC_DIR = srcs/
+INC_DIR = includes/
+SRCS = ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
+OBJS = ${addprefix ${SRC_DIR},${SRCS:.c=.o}}
 
-.c.o:
-			${CC} ${CFLAGS} -I ${HEAD} -c $< -o ${<:.c=.o}
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -I ${INC_DIR}
 
-${NAME}:	${OBJS}
-			ar -rc ${NAME} ${OBJS}
+OUTPUT = libft.a
 
-all :		${NAME}
+all : ${OUTPUT}
+
+${OUTPUT}: ${OBJS}
+	ar -rcs $@ $^
 
 clean:
-			rm -f ${OBJS}
+	rm -f ${OBJS}
 
-fclean:		clean
-			rm -f ${NAME}
+fclean: clean
+	rm -f ${OUTPUT}
 
-re:			fclean all
+re: fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:	all clean fclean re
