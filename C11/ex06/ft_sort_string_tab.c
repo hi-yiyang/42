@@ -1,30 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_sort_string_tab.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 22:37:42 by yxu               #+#    #+#             */
+/*   Created: 2022/08/24 02:28:26 by yxu               #+#    #+#             */
 /*   Updated: 2022/08/24 02:28:34 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	*ft_map(int *tab, int length, int (*f)(int))
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	*ptr;
-	int	i;
-
-	ptr = malloc(sizeof(int) * length);
-	if (ptr == 0 || length < 1)
-		return (0);
-	i = 0;
-	while (i < length)
+	while (*s1 && *s1 == *s2)
 	{
-		ptr[i] = f(tab[i]);
+		s1++;
+		s2++;
+	}
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+}
+
+void	swap_str(char **a, char **b)
+{
+	char	*temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+void	ft_sort_string_tab(char **tab)
+{
+	int	size;
+	int	i;
+	int	j;
+
+	size = 0;
+	while (tab[size])
+		size++;
+	i = 0;
+	while (i < size - 1)
+	{
+		j = 0;
+		while (j < size - 1)
+		{
+			if (ft_strcmp(tab[j], tab[j + 1]) > 0)
+				swap_str(&tab[j], &tab[j + 1]);
+			j++;
+		}
 		i++;
 	}
-	return (ptr);
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   a.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 22:37:48 by yxu               #+#    #+#             */
-/*   Updated: 2022/08/23 22:37:52 by yxu              ###   ########.fr       */
+/*   Updated: 2022/08/24 02:28:34 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_sort(int *tab, int length, int(*f)(int, int))
+int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
 	int	i;
 	int	ascend;
@@ -38,14 +38,14 @@ int	ft_is_sort(int *tab, int length, int(*f)(int, int))
 
 int	ft_tri(int a, int b)
 {
-    return (a - b);
+	return (a - b);
 }
 
 int	main(void)
 {
-	static int	tabx[] = {7, 6, 6, 6, 5, 5, 3, 2, 2, 1, 1, 0, 0};
+	int	tabx[] = {7, 6, 6, 6, 5, 5, 3, 2, 2, 1, 1, 0, 0};
 	int	length;
 
-    length = 10;
-    printf("%d\n", ft_is_sort(tabx, length, &ft_tri));
+	length = 10;
+	printf("%d\n", ft_is_sort(tabx, length, &ft_tri));
 }

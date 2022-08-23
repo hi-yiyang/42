@@ -6,11 +6,11 @@
 /*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 22:37:39 by yxu               #+#    #+#             */
-/*   Updated: 2022/08/23 22:37:51 by yxu              ###   ########.fr       */
+/*   Updated: 2022/08/24 02:28:34 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_foreach(int *tab, int length, void(*f)(int))
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
 	int	i;
 

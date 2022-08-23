@@ -1,26 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   do-op.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yxu <yxu@student.42abudhabi.ae>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/24 02:28:23 by yxu               #+#    #+#             */
+/*   Updated: 2022/08/24 02:28:34 by yxu              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-int	str2int(char *str)
+int	ft_atoi(char *str)
 {
 	int	i;
 	int	pos;
-	int	value;
+	int	result;
 
 	i = 0;
 	pos = 1;
-	value = 0;
+	result = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
 	while (str[i] == '+' || str[i] == '-')
 	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			pos = -pos;
-		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		value = value * 10 + (str[i] - '0');
-		i++;
+		result = (result * 10) + (str[i++] - '0');
 	}
-	return (value * pos);
+	return (result * pos);
 }
 
 void	ft_putchar(char c)
@@ -77,8 +89,8 @@ int	main(int argc, char **argv)
 
 	if (argc != 4)
 		return (0);
-	n1 = str2int(argv[1]);
-	n2 = str2int(argv[3]);
+	n1 = ft_atoi(argv[1]);
+	n2 = ft_atoi(argv[3]);
 	arithmetic(n1, n2, *argv[2]);
 	ft_putchar('\n');
 }
