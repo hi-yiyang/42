@@ -37,7 +37,7 @@ int	count_digit_base(int nbr, unsigned int base_sys)
 	return (dig);
 }
 
-void	nbr2str_base(int decimal, int base_sys, char *base, char *ptr)
+void	nbr2str_base(int decimal, unsigned int base_sys, char *base, char *ptr)
 {
 	int				pos;
 	unsigned int	n;
@@ -83,5 +83,6 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 
 int	main(void)
 {
-	printf("%s\n", ft_convert_base("    +-+---2147483648", "0123456789", "01234567"));
+	printf("%s\n", ft_convert_base("    +-+---2147483648",
+		"0123456789", "01234567"));
 }*/

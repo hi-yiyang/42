@@ -32,7 +32,7 @@ int	cal_base_system(char *str)
 	return (i);
 }
 
-int	char2int(char *str, int start, char *base, int base_system)
+int	str2int(char *str, int start, char *base, int base_system)
 {
 	int	j;
 	int	result;
@@ -75,5 +75,5 @@ int	ft_atoi_base(char *str, char *base)
 		if (str[i++] == '-')
 			pos = -pos;
 	}
-	return (char2int(str, i, base, base_system) * pos);
+	return (str2int(str, i, base, base_system) * pos);
 }

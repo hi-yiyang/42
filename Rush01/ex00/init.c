@@ -18,11 +18,10 @@ void	put(char *str)
 int	malloc_2d_int_array(void)
 {
 	int	*ptr;
-	
-	malloc()
+
+	malloc();
 }
 
 int	malloc_3d_int_array(void)
 {
-
 }
